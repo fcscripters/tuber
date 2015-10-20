@@ -1,6 +1,7 @@
 var tape = require('tape');
 var shot = require('shot');
 var assert = require('assert');
+var handler =require('../handlers/home.js')
 
 
 tape("check to see if the server is running ok", function (t) {
