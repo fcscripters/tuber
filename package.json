@@ -1,0 +1,31 @@
+{
+  "name": "tuber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "router.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fcscripters/tuber.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fcscripters/tuber/issues"
+  },
+  "homepage": "https://github.com/fcscripters/tuber#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.0",
+    "shot": "^1.7.0",
+    "tape": "^4.2.1"
+  },
+  "dependencies": {
+    "env2": "^2.0.4"
+  }
+}
