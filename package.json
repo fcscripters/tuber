@@ -7,10 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/tape ./test/* & npm run coverage",
-    "start": "node server.js",
-    "coverage":"./node_modules/.bin/istanbul cover test/*",
-    "codeclimate": "CODECLIMATE_REPO_TOKEN=1b3cda680591cd6c37a816baac7f318d19557c303d75c521625610dc80adbca7 codeclimate-test-reporter < ./coverage/lcov.info"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
