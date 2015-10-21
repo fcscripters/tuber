@@ -22,7 +22,7 @@ var data ={
                 "naptanId": "940GZZLUBLG",
                 "platformName": "",
                 "icsCode": "1000022",
-                "commonName": "Bethnal Green Underground Station",
+                "commonName": "Bethnal  Green Underground Station",
                 "placeType": "StopPoint",
                 "additionalProperties": [],
                 "lat": 51.52706146271,

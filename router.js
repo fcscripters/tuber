@@ -2,20 +2,22 @@ function route() {
 
     var routes = {};
     var routeArray = [];
-
-    routes.addRoute = function(path, handler) {
-        var routeObj = {
+    routes.addRoute = function(params, path, handler) {
+        var routeObj = 
+        {
+            params: {
+                from: from,
+                to: to
+            },
             path: path,
             fn: handler
         };
         routeArray.push(routeObj)
-    	console.log('THIS IS ROUTE ARRAY', routeArray);
     };
 
     routes.match = function(path) {
         var matches = routeArray.filter(function(routeObj) {
-        	console.log("PATH: ", path);
-        	if (routeObj.path === path){ console.log( 'IN MATCH')};
+            console.log("PATH: ", path);
             return routeObj.path === path;
         });
         console.log(matches);
@@ -28,4 +30,4 @@ function route() {
 
 }
 
-module.exports =route;
+module.exports = route;

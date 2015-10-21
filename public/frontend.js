@@ -1,22 +1,21 @@
-
 var journeyButton = document.getElementById('journeyButton')
 
-journeyButton.addEventListener(click, function(){
+journeyButton.addEventListener('click', function() {
+            var from = document.getElementById('from').value
+            var to = document.getElementById('to').value
+            console.log('BOOM', from, to);
+            var request = new XMLHttpRequest();
 
-var request = XMLHttpRequest();
-requestOnload.onreadystatechange = function(){
-	if (requestOnload readyState === 4 ){
-	
-
-	}
-}
-
-request.send('GET', '/result', true);
+            request.onreadystatechange = function() {
+                if (request.readyState === 4) {
 
 
 
-} )
+                }
+			}
+            request.open('GET', '/journey/'+from+'/'+to, true)
+            request.send();
 
 
 
-
+})
