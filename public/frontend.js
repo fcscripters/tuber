@@ -1,21 +1,23 @@
-var journeyButton = document.getElementById('journeyButton')
+var journeyButton = document.getElementById('journeyButton');
 
 journeyButton.addEventListener('click', function() {
-            var from = document.getElementById('from').value
-            var to = document.getElementById('to').value
-            console.log('BOOM', from, to);
+            var departureStation = document.getElementById('from').value;
+            departureStation = departureStation+'%20Underground%20Station';
+            var arrivalStation = document.getElementById('to').value;
+            arrivalStation = arrivalStation+'%20Underground%20Station';
+            console.log(departureStation);
+
             var request = new XMLHttpRequest();
 
             request.onreadystatechange = function() {
                 if (request.readyState === 4) {
 
 
-
                 }
-			}
-            request.open('GET', '/journey/'+from+'/'+to, true)
+			};
+            request.open('GET', '/journey/'+departureStation+'/'+arrivalStation, true);
             request.send();
 
 
 
-})
+});
