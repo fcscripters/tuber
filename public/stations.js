@@ -3460,5 +3460,3 @@ var stations = {
     }
   }]
 };
-
-module.exports = stations;
