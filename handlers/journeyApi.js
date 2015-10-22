@@ -6,10 +6,10 @@ var stations = require('./stations.js');
 
 module.exports = function JourneyApi(req, res, match) {
 
+  console.log(match);
 
   var departure = match.params.departureStation.replace(/\s+/g, '%20');
   var arrival = match.params.arrivalStation.replace(/\s+/g, '%20');
-  console.log(departure);
 
   res.writeHead(200, {
     "content-type": "text/javascript"
@@ -41,8 +41,8 @@ module.exports = function JourneyApi(req, res, match) {
       console.log(stoppointsArr);
 
       function pushStopPointsToArr(journeyObject) {
-        
-       
+
+
 
         var sortedStopsArray = stoppointsArr.map(function(obj) {
           var newObj = {};
@@ -52,14 +52,14 @@ module.exports = function JourneyApi(req, res, match) {
         });
         console.log(">>>>>>>",sortedJourneysArr.concat(sortedStopsArray));
         return sortedJourneysArr.concat(sortedStopsArray);
-      
+
 
       }
 
       pushDepartureToArr(journeyObject);
 
       var journeyArray = pushStopPointsToArr(journeyObject);
-      
+
       console.log('JOURNEY ARRAY',journeyArray);
 
       var journeyJSON = {
