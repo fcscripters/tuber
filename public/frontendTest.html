@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>frontendTest Tuber</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
+</head>
+<body>
+  <iframe src="index.html" width="100%" height="200px" id="iframe" frameborder="0"> </iframe>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- <script src="tests.js"></script> -->
+  <script>
+
+ test('Do we have input on from box?', function(assert) {
+      var iframe = document.getElementById('iframe');
+      var target = iframe.contentDocument || iframe.contentWindow.document;
+      var done = assert.async();
+      var input;
+      setTimeout (function(){	
+        var char = target.getElementById('from').value;
+          if (char.length > 0){
+            input = true;
+          }
+      console.log (input);
+      done();
+      assert.equal(input, true, 'We have input in the from box.' );
+    },2000);
+    });
+
+ test('Has the Submit button been clicked. You have to physically click the search button within the first 2 seconds to make this test pass', function(assert) {
+    var done = assert.async();
+    setTimeout (function(){
+      var submitButton = document.getElementById('journeyButton');
+      submitButton.addEventListener("click", function(){
+        clicked = true;
+      });
+      assert.equal( clicked, true, 'Submit Button has been clicked' );
+      done();
+    },2000);
+ });
+
+ 
+ test('Is there a map element', function(assert) {
+    var done = assert.async();
+    var check = false;
+    setTimeout (function(){
+
+    if(document.getElementById('map')){
+        check = true;
+      }
+      assert.equal( check, true, 'We have a map element' );
+      done();
+    },1000);
+  });
+
+
+
+
+
+  </script>
+
+</body>
+</html>
