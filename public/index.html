@@ -9,16 +9,12 @@
   <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
   <meta charset="utf-8">
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
-  <style>
-    #map {
-      width: 960px;
-      height: 500px;
-    }
-  </style>
   <title></title>
 </head>
 
 <body>
+	<h2>TÜBER</h2>
+	<h4>See Your Underground Journey On A Map of London</h4>
 	<input id="from" placeholder="from" ></input>
 	<input id="to" placeholder="to" type="text"></input>
 	<button id="journeyButton">Submit</button>
@@ -26,7 +22,37 @@
   <p id="map"></p>
 
 	<script>
-	
+	//sets the map up on the page
+
+	var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-zr0njcqy/{z}/{x}/{y}.png', {
+		attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+	});
+
+	var map = L.map('map')
+		.addLayer(mapboxTiles)
+		.setView([51.5113, -0.1281], 12);
+
+		var geojsonMarkerOptions = {
+			radius: 4,
+			fillColor: "blue",
+			color: "blue",
+			weight: 2,
+			opacity: 1,
+			fillOpacity: 0.3
+		};
+
+		L.geoJson(stations,{
+				pointToLayer: function(features, latlng) {
+					return L.circleMarker(latlng, geojsonMarkerOptions);
+			},
+			onEachFeature: yourOnEachFeatureFunction
+		}).addTo(map);
+
+		function yourOnEachFeatureFunction(features, layer) {
+			if (features.properties["Full Name"]) {
+				layer.bindPopup(features.properties["Full Name"]);
+			}
+		}
 	</script>
 
 </body>
