@@ -8,8 +8,8 @@ var port = process.env.PORT || 8000;
 
 router.addRoute('/favicon.ico', require('./handlers/faviconHandler.js'));
 router.addRoute('/', require('./handlers/home.js'));
-router.addRoute('/frontend.js', require('./handlers/frontendHandler.js'));
 router.addRoute('/journey/:departureStation/:arrivalStation', require('./handlers/journeyApi.js'));
+router.addRoute('/frontendTest', require('./handlers/frontendTest.js'));
 
 function handler(req, res) {
   var path = url.parse(req.url).pathname;
