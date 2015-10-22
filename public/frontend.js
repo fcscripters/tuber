@@ -8,7 +8,6 @@ journeyButton.addEventListener('click', function() {
             departureStation = departureStation+'%20Underground%20Station';
             var arrivalStation = document.getElementById('to').value;
             arrivalStation = arrivalStation+'%20Underground%20Station';
-            console.log(departureStation);
 
             var request = new XMLHttpRequest();
 
@@ -25,14 +24,20 @@ journeyButton.addEventListener('click', function() {
 
 function renderMapJourney (){
 
-
 //sets the map up on the page
+
 var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-zr0njcqy/{z}/{x}/{y}.png', {
   attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
 });
+
 var map = L.map('map')
   .addLayer(mapboxTiles)
   .setView([51.527, -0.0549], 12);
+
+
+//TO DO How to clear the layers
+//layer.clearLayers();
+
 //this styles the stations in leaflet
 L.geoJson(stations).addTo(map);
 
@@ -44,9 +49,6 @@ var d3path = "";
 //call back function takes data from points.geojson ect...
 d3.json("journey.geojson", function(error, points) {
 
-  //var points = JSON.parse(journeyJSONstring);
-
-    console.log ('points' + points);
 if (error) throw error;
 
   //points.features is points.geojson as an array
@@ -129,7 +131,7 @@ if (error) throw error;
       var marker = d3.select("#marker");
       var p = linePath.node().getPointAtLength(t * l);
       marker.attr("transform", "translate(" + p.x + "," + p.y + ")"); //move marker
-      console.log(interpolate(t))
+      //console.log(interpolate(t))
       return interpolate(t);
     }
   }
