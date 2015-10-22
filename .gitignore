@@ -3,4 +3,3 @@ coverage
 Procfile
 config.env
 env
-journey.geojson
