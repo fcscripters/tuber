@@ -1,7 +1,7 @@
 //var env = require('env2')('./config.env');
 var http = require('http');
 var request = require('request');
-
+var stations = require('./stations.js');
 
 module.exports = function JourneyApi(req, res, match) {
 
@@ -15,11 +15,11 @@ module.exports = function JourneyApi(req, res, match) {
     });
 
     request('https://api.tfl.gov.uk/Journey/JourneyResults/' + departure + '/to/' + arrival + '?nationalSearch=False&&&timeIs=Departing&&mode=tube&&&&&&&&&&&alternativeCycle=False&alternativeWalking=True&applyHtmlMarkup=False&useMultiModalCall=False&app_id=79820393&app_key=86e9a97b79e1d6524b134f521c40dfd1', function(error, response, body) {
-        
+
         if (!error && response.statusCode == 200) {
 
             var journeyObject = JSON.parse(body);
-           
+
 
             var sortedJourneysArr = [];
 
@@ -27,7 +27,7 @@ module.exports = function JourneyApi(req, res, match) {
                 var departureObject = {};
                 departureObject['id'] = journeyObject.journeys[0].legs[0].departurePoint.naptanId;
                 departureObject['name'] = journeyObject.journeys[0].legs[0].departurePoint.commonName;
-              
+
                 sortedJourneysArr.push(departureObject);
             }
 
@@ -40,14 +40,42 @@ module.exports = function JourneyApi(req, res, match) {
                     newObj['name'] = obj.name;
                     return newObj;
                 });
-                  
+
                 return sortedJourneysArr.concat(sortedStopsArray);
-            }       
+            }
 
                        pushDepartureToArr(journeyObject);
            console.log(pushStopPointsToArr(journeyObject));
-            
-       
+
+           journeyArray.forEach(function(obj, i){
+           var lat = "";
+           var long = "";
+
+           for (i=0 ;i< stations.features.length ;i++){
+             if (stations.features[i].id === obj.id ){
+               lat = stations.features[i].properties.latitude;
+               long = stations.features[i].properties.longitude;
+             }
+           }
+             var toAppendtoFeaturesArray = {
+               "type": "Feature",
+               "properties": {
+                 "latitude": lat,
+                 "longitude": long,
+                 "id": obj.id ,
+                 "time": i+1 ,
+                 "name": obj.name
+               },
+               "geometry": {
+                 "type": "Point",
+                 "coordinates": [long, lat]
+               }
+             };
+            console.log("-------ToAppend",toAppendtoFeaturesArray);
+           });
+
+
+
           res.end(body);
         }
     });
