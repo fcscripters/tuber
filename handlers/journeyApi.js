@@ -31,24 +31,36 @@ module.exports = function JourneyApi(req, res, match) {
 
         sortedJourneysArr.push(departureObject);
       }
+      var legsArray = journeyObject.journeys[0].legs
+
+      var stoppointsArr = legsArray.reduce(function(prev,current){
+
+        return prev.concat(current.path.stopPoints)
+      },[]);
+
+      console.log(stoppointsArr);
 
       function pushStopPointsToArr(journeyObject) {
-        stopsArray = journeyObject.journeys[0].legs[0].path.stopPoints
+        
+       
 
-        var sortedStopsArray = stopsArray.map(function(obj) {
+        var sortedStopsArray = stoppointsArr.map(function(obj) {
           var newObj = {};
           newObj['id'] = obj.id;
           newObj['name'] = obj.name;
           return newObj;
         });
-
+        console.log(">>>>>>>",sortedJourneysArr.concat(sortedStopsArray));
         return sortedJourneysArr.concat(sortedStopsArray);
+      
+
       }
 
       pushDepartureToArr(journeyObject);
 
       var journeyArray = pushStopPointsToArr(journeyObject);
-
+      
+      console.log('JOURNEY ARRAY',journeyArray);
 
       var journeyJSON = {
         "type": "FeatureCollection",
@@ -91,14 +103,14 @@ module.exports = function JourneyApi(req, res, match) {
         journeyJSON.features.push(toAppendtoFeaturesArray);
       });
 
-    console.log("journey json feature array", journeyJSON.features[0].properties);
+   // console.log("journey json feature array", journeyJSON.features[0].properties);
 
       fs.writeFile("./public/journey.geojson", JSON.stringify(journeyJSON),
         function(err){
           if (err){
             return console.log(err);
           }
-          console.log("fs write file worked");
+        //  console.log("fs write file worked");
           res.end();
         }
       );
