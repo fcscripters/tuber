@@ -3,7 +3,7 @@ var fs = require('fs');
 var generalHandler = function(req, res) {
 fs.readFile("./public" + req.url, function(err, file) {
   if (err) {
-    res.writeHead("404", {
+    res.writeHead(404, {
       'content-type': 'text/html'
     });
     res.end("resource not found");
