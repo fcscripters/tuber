@@ -15,8 +15,13 @@ journeyButton.addEventListener('click', function() {
 
     request.onreadystatechange = function() {
         if (request.readyState === 4) {
-
+          if(request.responseText.length > 1){
+            console.log('>>>>',request.responseText);
+            alert(request.responseText);
+          }
+          else{
             renderMapJourney();
+          }
 
         }
     };
@@ -176,6 +181,3 @@ function renderMapJourney() {
         layer.bindPopup(features.properties["Full Name"]);
       }
     }
-
-
-
