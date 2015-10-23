@@ -3,7 +3,7 @@
 View your journey animated through London
 
 #### How to use it?
-- Visit our [site](tuberscripters.herokuapp.com) and enter your journey to view the animation
+- Visit our [site](http://tuberscripters.herokuapp.com/) and enter your journey to view the animation
 
 #### To run locally
 - Download our repo, `npm install` and then `node server.js`. Visit our site on localhost:8000
