@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <html lang="en">
 <head>
@@ -12,12 +11,18 @@
   <title></title>
 </head>
 <body>
-	
+
 	<div id="inputWrapper">
 		<img id="tuberLogo" src="tuberLogo.png" alt="tuberLogo">
  		<h4>See Your Underground Journey On A Map of London</h4>
 		<input id="from" placeholder="from" ></input>
+		<div id="fromautocomplete">
+
+		</div>
 		<input id="to" placeholder="to" type="text"></input>
+		<div id="toautocomplete">
+
+		</div>
 		<a href="#map"><button id="journeyButton">Submit</button></a>
 	</div>
     <p id="map"></p>
@@ -26,4 +31,6 @@
  </footer>
 </body>
 <script type="text/javascript" src="/frontend.js"></script>
+<script type="text/javascript" src="/autocomplete.js"></script>
+
 </html>

@@ -4,12 +4,7 @@ var journeyJSON;
 var journeyJSONstring;
 
 journeyButton.addEventListener('click', function() {
-    var departureStation = document.getElementById('from').value;
-    departureStation = departureStation + '%20Underground%20Station';
 
-
-    var arrivalStation = document.getElementById('to').value;
-    arrivalStation = arrivalStation + '%20Underground%20Station';
 
     var request = new XMLHttpRequest();
 
