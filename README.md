@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/fcscripters/tuber/badges/gpa.svg)](https://codeclimate.com/github/fcscripters/tuber)
+
 ## TÜBER
 
 View your journey animated through London
