@@ -42,11 +42,11 @@ tape("check if general request is not reaching general handler and returns an er
   });
 });
 
-tape("check to see if the server is running ok", function (t) {
-  shot.inject(journeyHandler, {method: 'get', url: '/journey/bank%20underground%20station/mile%20end%20underground%20station'},match,function (res){
-    var result = res.statusCode;
-    console.log(res);
-    t.equal(result, 200, "success!");
-    t.end();
-  });
-});
+// tape("check to see if the server is running ok", function (t) {
+//   shot.inject(journeyHandler, {method: 'get', url: '/journey/bank%20underground%20station/mile%20end%20underground%20station'},match,function (res){
+//     var result = res.statusCode;
+//     console.log(res);
+//     t.equal(result, 200, "success!");
+//     t.end();
+//   });
+// });

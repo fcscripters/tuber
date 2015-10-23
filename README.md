@@ -23,6 +23,7 @@ We plan to make updates to the UI, so that each line is represented by its colou
 We use travis, Istanbul and tape for C-I and coverage testing, for the front end we used Qunit.
 
 ##Wireframes
+![imag0564](https://cloud.githubusercontent.com/assets/2305591/10691233/9547fc14-797f-11e5-8ee4-6d5ba1c4f8e6.jpg)
 
 
 
