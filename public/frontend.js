@@ -1,22 +1,17 @@
 var journeyButton = document.getElementById('journeyButton');
-
 var journeyJSON;
 var journeyJSONstring;
 
 journeyButton.addEventListener('click', function() {
     var departureStation = document.getElementById('from').value;
     departureStation = departureStation + '%20Underground%20Station';
-
-
     var arrivalStation = document.getElementById('to').value;
     arrivalStation = arrivalStation + '%20Underground%20Station';
-
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function() {
         if (request.readyState === 4) {
           if(request.responseText.length > 1){
-            console.log('>>>>',request.responseText);
             alert(request.responseText);
           }
           else{
@@ -27,29 +22,15 @@ journeyButton.addEventListener('click', function() {
     };
     request.open('GET', '/journey/' + departureStation + '/' + arrivalStation, true);
     request.send();
-
 });
 
-
-
-
-
 function renderMapJourney() {
-
-
-    //TO DO How to clear the layers
-
-    //this styles the stations in leaflet
-
-
     //sets up a d3 svg layer on top of the leaflet map
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
-
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
     var d3path = "";
     //call back function takes data from points.geojson ect...
     d3.json("journey.geojson", function(error, points) {
-
         if (error) throw error;
         //points.features is points.geojson as an array
         var pointsData = points.features;
@@ -57,7 +38,6 @@ function renderMapJourney() {
         var transform = d3.geo.transform({
             point: projectPoint
         });
-
         d3path = d3.geo.path().projection(transform);
         //Here we're creating a FUNCTION to generate a line from input points.
         var toLine = d3.svg.line().interpolate("linear").x(function(d) {
@@ -94,7 +74,6 @@ function renderMapJourney() {
             var bounds = d3path.bounds(points);
             var topLeft = bounds[0];
             var bottomRight = bounds[1];
-
             pointFeature.attr("transform", function(d) {
                 return "translate(" + applyLatLngToLayer(d).x + "," + applyLatLngToLayer(d).y + ")";
             });
@@ -111,19 +90,17 @@ function renderMapJourney() {
                 .style("top", topLeft[1] + "px");
 
             linePath.attr("d", toLine)
-
             g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
         } //end reset
         //these two functions dictate the movement between the markers
         function transition() {
             linePath.transition()
-                .duration(7500)
+                .duration(points.features.length *750)
                 .attrTween("stroke-dasharray", tweenDash)
                 .each("end", function() {
                     d3.select(this).call(transition); // infinite loop
                 });
         }
-
         function tweenDash() {
             return function(t) {
                 var l = linePath.node().getTotalLength();
@@ -147,10 +124,7 @@ function renderMapJourney() {
             return map.latLngToLayerPoint(new L.LatLng(y, x))
         }
     });
-
 }
-
-
 
   var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-zr0njcqy/{z}/{x}/{y}.png', {
     attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
