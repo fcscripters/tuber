@@ -61,3 +61,26 @@ node server.js
 ```
 
 Run the tests with make t or npm test
+
+## Acknowledgements
+
+The tfl api was core to our project.
+
+We used the Leaflet JS library in conjunction with D3: 
+
+http://leafletjs.com/
+
+We used the 'Visualising London Tube Map' for the coordinates of stations.
+
+http://bl.ocks.org/nicola/69730fc4180246b0d56d#index.html
+
+This tutorial was incredibly useful and helped us a great deal with animation
+
+http://zevross.com/blog/2014/09/30/use-the-amazing-d3-library-to-animate-a-path-on-a-leaflet-map/
+
+The Naptan IDs were matched to the station names using the information available here:
+
+https://gist.github.com/i-like-robots/a4608cbdf21d979d9452
+
+
+
