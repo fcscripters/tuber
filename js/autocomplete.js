@@ -16,14 +16,20 @@ ac.import = function(callback) {
 
 
 ac.findWord = function(word, callback) {
-  // who wants to volunteer to implement the method?
   var found = [];
+
   for (var i = 0; i < ac.words.length; i++) {
     if (ac.words[i].search(word) === 0) {
       found.push(ac.words[i]);
+
+
     }
   }
   return callback(null, found);
+};
+
+ac.toTitleCase = function(userInput){
+  return userInput.replace(/\w\S*/g, function(txt){return userInput.charAt(0).toUpperCase() + userInput.substr(1).toLowerCase();});
 };
 
 module.exports = ac;
