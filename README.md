@@ -1,4 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/fcscripters/tuber/badges/gpa.svg)](https://codeclimate.com/github/fcscripters/tuber)
+[![codecov.io](https://codecov.io/github/fcscripters/tuber/coverage.svg?branch=master)](https://codecov.io/github/fcscripters/tuber?branch=master)
 
 ## TÜBER
 
