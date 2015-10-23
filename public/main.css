@@ -1,33 +1,116 @@
 body {
-  font-family: Futura ;
-  background-color: #FFCC66;
-  text-align: center;
-  margin :auto;
-}
-#map {
-  width: 80%;
-  height: 35em;
-  margin:auto;
-  margin-top: 2em;
-  margin-bottom: 2em;
+    font-family: Futura;
+    background-color: #D8D8D8;
+    text-align: center;
+    margin: auto;
+    color: blue;
 }
 
 svg {
-  position: relative;
+    position: relative;
 }
 
 .travelMarker {
-  fill: yellow;
-  opacity: 0.75;
+     fill: yellow;
+     opacity: 0.75;
 }
 
 .waypoints {
-  fill: black;
-  opacity: 0;
+    fill: black;
+    opacity: 0;
 }
 
 .lineConnect {
-fill: none;
-stroke: black;
-opacity: 1;
+    fill: none;
+    stroke: green;
+    stroke-width: 6;
+    opacity: 1;
+}
+
+#tuberLogo {
+    margin-top: 2em;
+    width: 22em;
+    height: 18em;
+}
+
+h4 {
+    font-size: 2em;
+    font-family: Futura;
+    color: blue;
+}
+
+#inputWrapper {
+    text-align: center;
+    display: block;
+}
+
+#from,
+#to {
+    font-size: 3em;
+    border-radius: 15px;
+    display: block;
+    margin: 0.5em auto;
+    text-align: center;
+}
+
+#journeyButton:hover {
+    color: green;
+}
+
+#journeyButton {
+    font-size: 3em;
+    background-color:red;
+    color: white;
+    display: block;
+    margin: auto;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#map {
+    width: 80%;
+    height: 50em;
+    text-align: center;
+    margin: 4em auto;
+    border: 8px blue solid;
+    padding: 2em;
+}
+
+footer p {
+    margin: 10em auto;
+}
+
+@media (min-width: 1000px) {
+    #tuberLogo {
+        margin-top: 2em;
+        width: 9em;
+        height: 7em;
+        display: inline-block;
+        text-align: center;
+      
+    }
+
+    h4 {
+        font-size: 1em;
+        font-family: sans-serif;
+        color: blue;
+    }
+    #from,
+    #to {
+        font-size: 1em;
+        display: inline-block;
+        margin-right: 2em;
+        margin-top:0;
+    }
+    #journeyButton {
+        font-size: 1em;
+        display: inline-block;
+      
+    }
+    #map {
+        width: 80%;
+        height: 45em;
+        margin:1em auto;
+    }
 }

@@ -11,50 +11,19 @@
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
   <title></title>
 </head>
-
 <body>
-	<h2>TÜBER</h2>
-	<h4>See Your Underground Journey On A Map of London</h4>
-	<input id="from" placeholder="from" ></input>
-	<input id="to" placeholder="to" type="text"></input>
-	<button id="journeyButton">Submit</button>
-
-  <p id="map"></p>
-
-	<script>
-	//sets the map up on the page
-
-	var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-zr0njcqy/{z}/{x}/{y}.png', {
-		attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
-	});
-
-	var map = L.map('map')
-		.addLayer(mapboxTiles)
-		.setView([51.5113, -0.1281], 12);
-
-		var geojsonMarkerOptions = {
-			radius: 4,
-			fillColor: "blue",
-			color: "blue",
-			weight: 2,
-			opacity: 1,
-			fillOpacity: 0.3
-		};
-
-		L.geoJson(stations,{
-				pointToLayer: function(features, latlng) {
-					return L.circleMarker(latlng, geojsonMarkerOptions);
-			},
-			onEachFeature: yourOnEachFeatureFunction
-		}).addTo(map);
-
-		function yourOnEachFeatureFunction(features, layer) {
-			if (features.properties["Full Name"]) {
-				layer.bindPopup(features.properties["Full Name"]);
-			}
-		}
-	</script>
-
+	
+	<div id="inputWrapper">
+		<img id="tuberLogo" src="tuberLogo.png" alt="tuberLogo">
+ 		<h4>See Your Underground Journey On A Map of London</h4>
+		<input id="from" placeholder="from" ></input>
+		<input id="to" placeholder="to" type="text"></input>
+		<a href="#map"><button id="journeyButton">Submit</button></a>
+	</div>
+    <p id="map"></p>
+ <footer>
+ 	<p> &copy fcscripters 2015 </p>
+ </footer>
 </body>
 <script type="text/javascript" src="/frontend.js"></script>
 </html>
