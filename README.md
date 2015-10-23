@@ -1,6 +1,8 @@
 [![Code Climate](https://codeclimate.com/github/fcscripters/tuber/badges/gpa.svg)](https://codeclimate.com/github/fcscripters/tuber)
 [![codecov.io](https://codecov.io/github/fcscripters/tuber/coverage.svg?branch=master)](https://codecov.io/github/fcscripters/tuber?branch=master)
 [![Codecrystal](https://img.shields.io/badge/code-crystal-5CB3FF.svg)](http://codecrystal.herokuapp.com/crystalise/fcscripters/tuber/master)
+[![bitHound Score](https://www.bithound.io/github/fcscripters/tuber/badges/score.svg)](https://www.bithound.io/github/fcscripters/tuber)
+[![bitHound Dependencies](https://www.bithound.io/github/fcscripters/tuber/badges/dependencies.svg)](https://www.bithound.io/github/fcscripters/tuber/master/dependencies/npm)
 
 ## TÜBER
 
