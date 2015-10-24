@@ -96,16 +96,18 @@ footer p {
         font-family: sans-serif;
         color: blue;
     }
-    #from,
+    #fromautocomplete, #toautocomplete, #from,
     #to {
         font-size: 1em;
         display: inline-block;
         margin-right: 2em;
         margin-top:0;
+    
     }
     #journeyButton {
         font-size: 1em;
         display: inline-block;
+
       
     }
     #map {
