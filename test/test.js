@@ -7,6 +7,19 @@ var journeyHandler = require('../handlers/journeyApi.js');
 var testrequest = require('request');
 var router = require('routes')();
 
+var match = {
+  params: {
+    departureStation: 'bethnal green',
+    arrivalStation: 'mile end Underground Station'
+  }
+};
+
+function makeMockHandler(handler, match) {
+
+  return function mockHandler(req, res) {
+    handler(req, res, match);
+  };
+}
 
 
 tape("check to see if the server is running ok", function(t) {
@@ -44,20 +57,6 @@ tape("check if general request is not reaching general handler and returns an er
     t.end();
   });
 });
-
-var match = {
-  params: {
-    departureStation: 'bethnal green',
-    arrivalStation: 'mile end Underground Station'
-  }
-};
-
-function makeMockHandler(handler, match) {
-
-  return function mockHandler(req, res) {
-    handler(req, res, match);
-  };
-}
 
 
 tape("check to see if the server is running ok", function(t) {
