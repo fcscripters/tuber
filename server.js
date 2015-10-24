@@ -10,7 +10,7 @@ router.addRoute('/favicon.ico', require('./handlers/faviconHandler.js'));
 router.addRoute('/', require('./handlers/home.js'));
 router.addRoute('/journey/:departureStation/:arrivalStation', require('./handlers/journeyApi.js'));
 router.addRoute('/frontendTest', require('./handlers/frontendTest.js'));
-router.addRoute('/autocomplete/:userInput', require('./handlers/departureAutocomplete.js'));
+router.addRoute('/autocomplete/:userInput', require('./handlers/autocompleteHandler.js'));
 
 
 

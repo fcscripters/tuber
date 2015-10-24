@@ -2,7 +2,7 @@ var fs =require('fs');
 var index = fs.readFileSync(__dirname + '/../public/index.html');
 var ac = require('../js/autocomplete.js');
 
-module.exports = function departureAutocomplete(req, res, match) {
+module.exports = function autocomplete(req, res, match) {
 
   var userInput = match.params.userInput;
   var correctInput = ac.toTitleCase(userInput);
