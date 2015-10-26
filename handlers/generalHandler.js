@@ -16,5 +16,5 @@ fs.readFile("./public" + req.url, function(err, file) {
   }
 });
 };
-
+  
 module.exports = generalHandler;

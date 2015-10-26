@@ -1,11 +1,11 @@
-var http = require('http');
+  var http = require('http');
 var request = require('request');
 var fs = require('fs');
 var stations = require('./stations.js');
 var env = require('env2')('./config.env');
 
 module.exports = function JourneyApi(req, res, match) {
-  console.log('>>>>>>>>>>>>>>>>>>>',match);
+ // console.log('>>>>>>>>>>>>>>>>>>>',match);
     var departure = match.params.departureStation.replace(/\s+/g, '%20');
     var arrival = match.params.arrivalStation.replace(/\s+/g, '%20');
     res.writeHead(200, {
